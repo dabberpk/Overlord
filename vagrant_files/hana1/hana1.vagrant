@@ -7,11 +7,10 @@ HOSTNAME = "vm0"
 
 load 'vagrantconf.rb'
 load 'vagrantconf_db.rb'
-load 'hana/vagrantconf_db.rb' #this file has the overrides for hana
-#especialy the used image with hana installation (in case of openstack)
+load 'files/vagrantconf_db.rb' #this file has the overrides for hana
+#especialy the used image with hana installation ( and flavour in case of openstack)
 load 'basic/provider_specific.rb'
 load 'basic/change_hostname.rb'
 load 'basic/update.rb'
-#load 'basic/mysql.rb'
 load 'basic/copy_files.rb'
 load 'basic/provider_specific_end.rb'

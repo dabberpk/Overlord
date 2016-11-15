@@ -44,18 +44,15 @@ __version__ = "0.01"
 
 def getDict():
     dbConfig={}
- #   dbConfig["db_folders"]=["/var/lib/mysql"]
+     dbConfig["db_folders"]=["/tmp"]
     dbConfig["db_client"]="jdbc"
-    dbConfig["db_args"]="-p jdbc.driver=com.mysql.jdbc.Driver -p db.url=jdbc:mysql://%%IP%%:3306/test -p db.user=root -p db.passwd=vagrant"
-    dbConfig["db_name"]="hana"
+    dbConfig["db_args"]="-cp /home/vagrant/YCSB-TS/ngdbc.jar -p db.driver=com.sap.db.jdbc.Driver -p db.url=jdbc:sap://IP_ADDRESS:30013/?databaseName=SYSTEMDB -p db.user=HANAUSER -p db.passwd=PASSWORD"
+    dbConfig["db_name"]="hana1"
     dbConfig["db_desc"]="SAP Hana Express on 1 VM."
     dbConfig["jvm_args"]="-jvm-args='-Xmx4096m'"
     dbConfig["prerun_once"]= []
     dbConfig["postrun_once"]= []
- #   dbConfig["prerun"]= [
- #       "mysql -h \"%%IP%%\" -u root --password='vagrant' -e 'create database test'",
- #       "%%SSH%%mysql -u root --password='vagrant' -e 'source /home/vagrant/files/create_table.mysql'"
-  #      ]
+    dbConfig["prerun"]= []
     dbConfig["postrun"]= []
     dbConfig["prerun_master"]= []
     dbConfig["postrun_master"]= []
@@ -69,5 +66,4 @@ def getDict():
     dbConfig["check_dict"]= {}
     dbConfig["basic"]= False
     dbConfig["sequence"]=[0]
-    dbConfig["include"] = ["hostsfile_1"]
     return dbConfig
